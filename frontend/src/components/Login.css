@@ -1,0 +1,243 @@
+/* Login.css */
+
+/* 3D Unique Animated Spheres for Login Background */
+.animated-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  background: linear-gradient(120deg, #10121a 0%, #181c2b 100%);
+  background-size: 200% 200%;
+  transition: background-position 1s;
+  filter: brightness(0.7) contrast(1.1);
+}
+
+.spheres-3d-bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0; left: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  perspective: 1200px;
+}
+
+.sphere {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #3dc0f8 0%, #23243a 80%);
+  box-shadow: 0 0 60px 20px #3dc0f8, 0 0 120px 40px #c933f7;
+  opacity: 0.18;
+  transform-style: preserve-3d;
+  will-change: transform;
+  animation: sphere3dMove 10s cubic-bezier(0.23, 1, 0.32, 1) infinite alternate;
+}
+
+.sphere1 { left: 10vw; top: 60vh; width: 120px; height: 120px; animation-delay: 0s; }
+.sphere2 { left: 30vw; top: 20vh; width: 80px; height: 80px; animation-delay: 2s; background: radial-gradient(circle at 70% 70%, #c933f7 0%, #181c2b 80%);}
+.sphere3 { left: 55vw; top: 75vh; width: 160px; height: 160px; animation-delay: 4s; background: radial-gradient(circle at 50% 50%, #fffbe7 0%, #23243a 90%);}
+.sphere4 { left: 75vw; top: 25vh; width: 100px; height: 100px; animation-delay: 6s; background: radial-gradient(circle at 30% 70%, #3dc0f8 0%, #23243a 80%);}
+.sphere5 { left: 85vw; top: 80vh; width: 140px; height: 140px; animation-delay: 8s; background: radial-gradient(circle at 80% 30%, #c933f7 0%, #181c2b 80%);}
+
+@keyframes sphere3dMove {
+  0% {
+    transform: translateZ(0px) scale(1) rotateY(0deg) rotateX(0deg);
+    opacity: 0.18;
+    filter: blur(0px);
+  }
+  30% {
+    transform: translateZ(60px) scale(1.1) rotateY(30deg) rotateX(20deg);
+    opacity: 0.22;
+    filter: blur(2px);
+  }
+  60% {
+    transform: translateZ(-40px) scale(1.15) rotateY(60deg) rotateX(40deg);
+    opacity: 0.28;
+    filter: blur(4px);
+  }
+  100% {
+    transform: translateZ(0px) scale(1) rotateY(0deg) rotateX(0deg);
+    opacity: 0.18;
+    filter: blur(0px);
+  }
+}
+
+/* Login form styling */
+.login-container {
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+  margin: 80px auto;
+  background: rgba(255,255,255,0.95);
+  padding: 32px 28px 24px 28px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(61,192,248,0.18), 0 0 0 4px rgba(61,192,248,0.12);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  overflow: hidden;
+}
+
+.login-container::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  z-index: -1;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #3dc0f8, #c933f7, #3dc0f8, #c933f7);
+  background-size: 300% 300%;
+  animation: borderGlow 4s linear infinite;
+  filter: blur(6px);
+  opacity: 0.7;
+}
+
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #3dc0f8;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 16px #3dc0f8aa, 0 0px 2px #c933f7aa;
+  animation: headingPop 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes headingPop {
+  0% { opacity: 0; transform: scale(0.8) translateY(-30px);}
+  60% { opacity: 1; transform: scale(1.1) translateY(10px);}
+  100% { opacity: 1; transform: scale(1) translateY(0);}
+}
+
+.form-label {
+  color: #495057;
+  font-weight: 500;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.form-control:focus {
+  border-color: #3dc0f8;
+  box-shadow: 0 0 8px #3dc0f8, 0 0 16px #c933f7;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  background: linear-gradient(90deg, #3dc0f8 60%, #c933f7 100%);
+  border: none;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+  animation: btnFadeIn 1.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes btnFadeIn {
+  from { opacity: 0; transform: scale(0.8);}
+  to { opacity: 1; transform: scale(1);}
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #c933f7 60%, #3dc0f8 100%);
+  transform: scale(1.04);
+  box-shadow: 0 0 16px #3dc0f8, 0 0 24px #c933f7;
+  animation: btnPulse 0.7s;
+}
+
+@keyframes btnPulse {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.08);}
+  100% { transform: scale(1);}
+}
+
+p {
+  text-align: center;
+  margin-top: 16px;
+}
+
+p a {
+  color: #c933f7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes popIn {
+  0% { transform: scale(0.8);}
+  60% { transform: scale(1.05);}
+  100% { transform: scale(1);}
+}
+ 
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  background: linear-gradient(90deg, #3dc0f8 60%, #c933f7 100%);
+  border: none;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+  animation: btnFadeIn 1.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes btnFadeIn {
+  from { opacity: 0; transform: scale(0.8);}
+  to { opacity: 1; transform: scale(1);}
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #c933f7 60%, #3dc0f8 100%);
+  transform: scale(1.04);
+  box-shadow: 0 0 16px #3dc0f8, 0 0 24px #c933f7;
+  animation: btnPulse 0.7s;
+}
+
+@keyframes btnPulse {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.08);}
+  100% { transform: scale(1);}
+}
+
+p {
+  text-align: center;
+  margin-top: 16px;
+}
+
+p a {
+  color: #c933f7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes popIn {
+  0% { transform: scale(0.8);}
+  60% { transform: scale(1.05);}
+  100% { transform: scale(1);}
+}

@@ -1,0 +1,268 @@
+/* Sidebar Styling */
+.sidebar {
+  height: 100vh; /* Full height */
+  position: fixed;
+  background-color: #343a40;
+  width: 220px; /* Fixed sidebar width */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Keeps sidebar on top */
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1);
+  background: linear-gradient(135deg, #343a40 60%, #3dc0f8 100%);
+  box-shadow: 2px 0 20px rgba(61, 192, 248, 0.1);
+}
+
+.sidebar a {
+  color: #fff;
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.sidebar a:hover {
+  background: linear-gradient(90deg, #3dc0f8 0%, #c933f7 100%);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Navbar */
+.navbar {
+  height: 60px;
+  width: calc(100% - 198px); /* Ensure width adjusts based on sidebar width */
+  background-color: #343a40;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 198px; /* Offset to accommodate sidebar width */
+  z-index: 1000;
+  animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  background: linear-gradient(90deg, #3dc0f8 60%, #c933f7 100%);
+  box-shadow: 0 2px 16px rgba(61, 192, 248, 0.15);
+  transition: background 0.5s, box-shadow 0.5s;
+}
+
+.navbar a {
+  color: #fff;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #ccc;
+}
+
+/* Content Area */
+.content {
+  margin-left: 220px; /* Offset for the sidebar */
+  padding-top: 80px;  /* Offset for the navbar */
+  padding-left: 20px;
+  padding-right: 20px;
+  animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* App.css */
+
+/* Background color for Cards */
+.custom-card {
+  background-color: #3dc0f8; /* Light grey background */
+  border: 1px solid #dee2e6; /* Light border */
+  animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  background: linear-gradient(135deg, #3dc0f8 60%, #c933f7 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 24px rgba(61, 192, 248, 0.15);
+  animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1), cardPop 1.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.custom-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 16px 40px rgba(61, 192, 248, 0.22);
+  animation: pulse 1.2s;
+}
+
+/* Background color for Table */
+.custom-table {
+  background-color: #c933f7; /* White background */
+  border: 1px solid #dee2e6; /* Light border */
+  animation: fadeInUp 1.4s cubic-bezier(0.23, 1, 0.32, 1);
+  background: linear-gradient(90deg, #c933f7 60%, #3dc0f8 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 16px rgba(201, 51, 247, 0.12);
+}
+
+.custom-table thead th {
+  background-color: #3dc0f8; /* Light grey header */
+  color: #495057; /* Dark grey text */
+  background: linear-gradient(90deg, #3dc0f8 60%, #c933f7 100%);
+  color: #fff;
+  border: none;
+}
+
+/* Table header styling */
+
+/* Background color for Charts */
+.chart-container {
+  background-color: hsl(60, 61%, 94%); /* Very light grey background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for elevation */
+  animation: fadeInUp 1.6s cubic-bezier(0.23, 1, 0.32, 1);
+  background: linear-gradient(135deg, #fffbe7 60%, #3dc0f8 100%);
+  box-shadow: 0 4px 24px rgba(61, 192, 248, 0.13);
+  border: 2px solid #3dc0f8;
+}
+
+/* Button Animation */
+.btn, .btn-primary, .btn-success, .btn-warning, .btn-danger {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover, .btn-primary:hover, .btn-success:hover, .btn-warning:hover, .btn-danger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(61, 192, 248, 0.18);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(61, 192, 248, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(61, 192, 248, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(61, 192, 248, 0);
+  }
+}
+
+/* Fade-in for content area */
+.content, .container, .container-fluid {
+  animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Responsive tweaks for animation */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100vw;
+    position: relative;
+    left: 0;
+    top: 0;
+    box-shadow: none;
+  }
+  .navbar {
+    left: 0;
+    width: 100vw;
+  }
+  .content {
+    margin-left: 0;
+    padding-top: 70px;
+  }
+}
+
+/* Dashboard animated background */
+.dashboard-bg-animated {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(120deg, #10121a 0%, #23243a 100%);
+  animation: dashboardBgWaves 18s linear infinite alternate;
+}
+
+@keyframes dashboardBgWaves {
+  0% { background-position: 0% 50%; filter: brightness(0.8) blur(0px);}
+  50% { background-position: 100% 50%; filter: brightness(0.6) blur(2px);}
+  100% { background-position: 0% 50%; filter: brightness(0.8) blur(0px);}
+}
+
+/* Animated floating waves */
+.dashboard-bg-animated .wave {
+  position: absolute;
+  width: 200vw;
+  height: 320px;
+  left: -50vw;
+  border-radius: 43% 57% 60% 40% / 60% 40% 60% 40%;
+  opacity: 0.13;
+  filter: blur(12px);
+  animation: waveMove 14s linear infinite alternate;
+  background: linear-gradient(90deg, #3dc0f8 0%, #c933f7 100%);
+  z-index: 1;
+}
+.dashboard-bg-animated .wave.wave1 {
+  top: 10vh;
+  animation-delay: 0s;
+}
+.dashboard-bg-animated .wave.wave2 {
+  top: 40vh;
+  animation-delay: 5s;
+  background: linear-gradient(90deg, #c933f7 0%, #3dc0f8 100%);
+  opacity: 0.09;
+}
+.dashboard-bg-animated .wave.wave3 {
+  top: 70vh;
+  animation-delay: 10s;
+  background: linear-gradient(90deg, #fffbe7 0%, #3dc0f8 100%);
+  opacity: 0.07;
+}
+
+@keyframes waveMove {
+  0% { transform: translateX(0) scaleX(1);}
+  100% { transform: translateX(20vw) scaleX(1.1);}
+}
+
+/* Animated Navbar */
+.navbar {
+  animation: navbarSlideIn 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  background: linear-gradient(90deg, #3dc0f8 60%, #c933f7 100%);
+  box-shadow: 0 2px 16px rgba(61, 192, 248, 0.15);
+  transition: background 0.5s, box-shadow 0.5s;
+}
+@keyframes navbarSlideIn {
+  from { opacity: 0; transform: translateY(-60px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.navbar:hover {
+  background: linear-gradient(90deg, #c933f7 60%, #3dc0f8 100%);
+}
+
+/* Robot SVG animation for dashboard background */
+.robot-bg {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  opacity: 0.18;
+  z-index: 2;
+  pointer-events: none;
+  animation: robotFloat 12s ease-in-out infinite alternate;
+}
+.robot-bg.r1 { left: 10vw; top: 20vh; animation-delay: 0s; }
+.robot-bg.r2 { left: 60vw; top: 60vh; animation-delay: 3s; }
+.robot-bg.r3 { left: 80vw; top: 30vh; animation-delay: 6s; }
+.robot-bg.r4 { left: 30vw; top: 70vh; animation-delay: 9s; }
+
+@keyframes robotFloat {
+  0% { transform: translateY(0) scale(1) rotate(-8deg);}
+  50% { transform: translateY(-40px) scale(1.08) rotate(8deg);}
+  100% { transform: translateY(0) scale(1) rotate(-8deg);}
+}
