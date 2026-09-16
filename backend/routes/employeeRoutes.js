@@ -16,6 +16,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/', async (req, res) => {
+  try {
+    const employees = await Employee.find();
+    res.json(employees);
+  } catch (error) {
+    console.error('Error fetching employees:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+
 // Get employee count
 router.get('/count', async (req, res) => {
   try {
